@@ -17,7 +17,7 @@ setup(name='zopyx.ipsumplone',
       keywords='',
       author='',
       author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      url='http://pypi.python.org/pypi/zopyx.ipsumplone',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['zopyx'],
@@ -25,6 +25,7 @@ setup(name='zopyx.ipsumplone',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'loremipsum',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

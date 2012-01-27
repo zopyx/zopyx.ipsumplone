@@ -2,7 +2,7 @@ Metadata-Version: 1.0
 Name: zopyx.ipsumplone
 Version: 0.1
 Summary: Lorem ipsum text and image demo content for Plone
-Home-page: http://svn.plone.org/svn/collective/
+Home-page: http://pypi.python.org/pypi/zopyx.ipsumplone
 Author: UNKNOWN
 Author-email: UNKNOWN
 License: GPL
