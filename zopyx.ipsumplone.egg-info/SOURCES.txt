@@ -2,6 +2,11 @@ MANIFEST.in
 README.txt
 setup.cfg
 setup.py
+zopyx.ipsumplone-configure.zcml
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 zopyx/__init__.py
 zopyx.ipsumplone.egg-info/PKG-INFO
 zopyx.ipsumplone.egg-info/SOURCES.txt
@@ -19,7 +24,6 @@ zopyx/ipsumplone/setuphandlers.py
 zopyx/ipsumplone/skins.zcml
 zopyx/ipsumplone/tests.py
 zopyx/ipsumplone/version.txt
-zopyx/ipsumplone/browser/.configure.zcml.swp
 zopyx/ipsumplone/browser/__init__.py
 zopyx/ipsumplone/browser/configure.zcml
 zopyx/ipsumplone/browser/interfaces.py
