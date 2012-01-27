@@ -21,6 +21,9 @@ def gen_paragraphs(num=3):
 def gen_sentence():
     return loremipsum.Generator().generate_sentence()[-1]
 
+def gen_word():
+    return gen_sentence().split()[0]
+
 def gen_sentences(length=80):
     return u'/'.join([s[2] for s in loremipsum.Generator().generate_sentences(length)])
 
@@ -44,6 +47,8 @@ class Setup(BrowserView):
             self.createImage('images/image-%d' % i, width=800, height=600)
         for i in range(1, 10):
             self.createNewsitem('news/newsitem-%d' % i)
+        for i in range(1, 10):
+            self.createEvent('events/event-%d' % i)
         self.request.response.redirect(self.context.absolute_url())
 
     def _createObject(self, portal_type, path, title=None, description=None):
@@ -56,7 +61,9 @@ class Setup(BrowserView):
                 current[p].setTitle(p.capitalize())
                 current[p].reindexObject()
             current = current[p]
-    
+
+        if id in current.objectIds():
+            current.manage_delObjects(id)    
         current.invokeFactory(portal_type, id=id)
         obj = current[id]
         fieldNames = [field.getName() for field in obj.Schema().fields()]
@@ -70,6 +77,8 @@ class Setup(BrowserView):
         obj.setDescription(description)
         if 'text' in fieldNames:
             obj.setText(gen_sentences())
+            obj.setContentType('text/html')
+            obj.Schema().getField('text').getContentType(obj, 'text/html')
         obj.reindexObject()
         return obj    
 
@@ -85,5 +94,17 @@ class Setup(BrowserView):
     def createImage(self, path, width=800, height=600, title=None):
         obj = self._createObject('Image', path, title=title)
         obj.setImage(random_image(width, height))
+        obj.reindexObject()
+
+    def createEvent(self, path):
+        obj = self._createObject('Event', path)
+        start = DateTime() + random.randint(-1000, 1000)
+        end = start + random.randint(0,5)
+        obj.setStartDate(start)
+        obj.setEndDate(end)
+        obj.setLocation(gen_word())
+        obj.setEventUrl('http://www.plone.org')
+        obj.setContactName('Andreas Jung')
+        obj.setContactEmail('dummy@plone.org')
         obj.reindexObject()
 
