@@ -3,13 +3,13 @@ zopyx.ipsumplone
 
 This package provides some browser view for creating demo
 content and demo images without reinventing functionality 
-for every new project
+for every new project.
 
 Installation
 ============
 
 Add ``zopyx.ipsumplone`` to the eggs options of your buildout configuration, re-run
-buildout and restart your Plone instance
+buildout and restart your Plone instances.
 
 Usage
 =====

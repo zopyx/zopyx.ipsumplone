@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: zopyx.ipsumplone
-Version: 0.1.1
+Version: 0.1.2
 Summary: Lorem ipsum text and image demo content for Plone
 Home-page: http://pypi.python.org/pypi/zopyx.ipsumplone
 Author: Andreas Jung
@@ -22,10 +22,10 @@ Description: zopyx.ipsumplone
         Usage
         =====
         
-        - @@new-site called in the context of the Zope root object or a Zope folder will
+        - ``@@new-site`` called in the context of the Zope root object or a Zope folder will
           create a new Plone site with a unique id
         
-        - @@demo-content called in the context of the a Plone site will create
+        - ``@@demo-content`` called in the context of the a Plone site will create
           a set of folder for images, news items and documents
         
         The main purpose of the package to call the views above inside the setuphandler
@@ -33,6 +33,11 @@ Description: zopyx.ipsumplone
         ``browser/setup.py`` implementation to figure out API methods like
         ``createDocument()``, ``createImage()`` or ``createNewsitem()``. Subclassing
         the ``Setup`` view is obviously a good start for own customizations.
+        
+        Requirements
+        ============
+        
+        * tested with Plone 4.X
         
         Licence
         =======
