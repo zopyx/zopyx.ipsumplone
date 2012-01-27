@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: zopyx.ipsumplone
-Version: 0.1.2
+Version: 0.1.3
 Summary: Lorem ipsum text and image demo content for Plone
 Home-page: http://pypi.python.org/pypi/zopyx.ipsumplone
 Author: Andreas Jung
@@ -11,13 +11,13 @@ Description: zopyx.ipsumplone
         
         This package provides some browser view for creating demo
         content and demo images without reinventing functionality 
-        for every new project
+        for every new project.
         
         Installation
         ============
         
         Add ``zopyx.ipsumplone`` to the eggs options of your buildout configuration, re-run
-        buildout and restart your Plone instance
+        buildout and restart your Plone instances.
         
         Usage
         =====
@@ -38,6 +38,17 @@ Description: zopyx.ipsumplone
         ============
         
         * tested with Plone 4.X
+        
+        Sources
+        =======
+        
+        See https://github.com/zopyx/zopyx.ipsumplone
+        
+        Issue tracker
+        =============
+        
+        See https://github.com/zopyx/zopyx.ipsumplone/issues
+        
         
         Licence
         =======

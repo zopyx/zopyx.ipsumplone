@@ -1,13 +1,17 @@
+################################################################
+# zopyx.ipsumplone
+# (C) 2012, ZOPYX Limited. Published under GPL 2
+################################################################
+
+
 import os
 import urllib2
 import random
 import loremipsum
 
-from zope.component import getMultiAdapter
-from Acquisition import aq_inner
+from DateTime.DateTime import DateTime
 from Products.Five.browser import BrowserView
 from Products.CMFPlone.factory import addPloneSite
-from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from plone.i18n.normalizer.de import Normalizer
 
