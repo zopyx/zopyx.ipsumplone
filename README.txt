@@ -31,6 +31,17 @@ Requirements
 
 * tested with Plone 4.X
 
+Sources
+=======
+
+See https://github.com/zopyx/zopyx.ipsumplone
+
+Issue tracker
+=============
+
+See https://github.com/zopyx/zopyx.ipsumplone/issues
+
+
 Licence
 =======
 ``zopyx.ipsumplone`` is published under the GNU Public Licence Version 2
