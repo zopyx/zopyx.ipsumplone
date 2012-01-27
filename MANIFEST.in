@@ -1,0 +1,2 @@
+recursive-include zopyx *
+global-exclude *pyc
