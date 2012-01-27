@@ -15,6 +15,8 @@ from Products.CMFPlone.factory import addPloneSite
 from Products.CMFCore.utils import getToolByName
 from plone.i18n.normalizer.de import Normalizer
 
+pdf_data = file(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
+
 def gen_paragraphs(num=3):
     return u'/'.join([p[2] for p in loremipsum.Generator().generate_paragraphs(num)])
 
@@ -49,6 +51,8 @@ class Setup(BrowserView):
             self.createNewsitem('news/newsitem-%d' % i)
         for i in range(1, 10):
             self.createEvent('events/event-%d' % i)
+        for i in range(1, 10):
+            self.createFile('files/file-%d' % i)
         self.request.response.redirect(self.context.absolute_url())
 
     def _createObject(self, portal_type, path, title=None, description=None):
@@ -94,6 +98,11 @@ class Setup(BrowserView):
     def createImage(self, path, width=800, height=600, title=None):
         obj = self._createObject('Image', path, title=title)
         obj.setImage(random_image(width, height))
+        obj.reindexObject()
+
+    def createFile(self, path, title=None):
+        obj = self._createObject('File', path, title=title)
+        obj.setFile(pdf_data)
         obj.reindexObject()
 
     def createEvent(self, path):

@@ -15,10 +15,10 @@ Usage
 =====
 
 - ``@@new-site`` called in the context of the Zope root object or a Zope folder will
-  create a new Plone site with a unique id
+  create a new Plone site with a unique id.
 
 - ``@@demo-content`` called in the context of the a Plone site will create
-  a set of folder for images, news items and documents
+  a set of folder for images, news items, events, files and documents.
 
 The main purpose of the package to call the views above inside the setuphandler
 or profile setup step to generate example content on request.  Please check the

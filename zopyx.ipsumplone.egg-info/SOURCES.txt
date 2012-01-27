@@ -24,6 +24,7 @@ zopyx/ipsumplone/setuphandlers.py
 zopyx/ipsumplone/skins.zcml
 zopyx/ipsumplone/tests.py
 zopyx/ipsumplone/version.txt
+zopyx/ipsumplone/browser/.setup.py.swp
 zopyx/ipsumplone/browser/__init__.py
 zopyx/ipsumplone/browser/configure.zcml
 zopyx/ipsumplone/browser/interfaces.py
