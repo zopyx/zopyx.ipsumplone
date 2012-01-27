@@ -1,10 +1,10 @@
 Metadata-Version: 1.0
 Name: zopyx.ipsumplone
-Version: 0.1
+Version: 0.1.1
 Summary: Lorem ipsum text and image demo content for Plone
 Home-page: http://pypi.python.org/pypi/zopyx.ipsumplone
-Author: UNKNOWN
-Author-email: UNKNOWN
+Author: Andreas Jung
+Author-email: info@zopyx.com
 License: GPL
 Description: zopyx.ipsumplone
         ================
@@ -45,17 +45,19 @@ Description: zopyx.ipsumplone
         | c/o Andreas Jung
         | Charlottenstr. 37/1
         | D-72070 Tübingen, Germany
-        | www.zopyx.com
-        | info@zopyx.com
+        | www.zopyx.com
+        | info@zopyx.com
+        
         
         Changelog
         =========
         
-        0.1dev (unreleased)
+        0.1 (2012-01-27)
         -------------------
         
         - Initial release
         
+Keywords: Plone Loremipsum
 Platform: UNKNOWN
 Classifier: Framework :: Plone
 Classifier: Programming Language :: Python
