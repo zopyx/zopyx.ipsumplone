@@ -11,4 +11,13 @@
     for="*"
    />
 
+
+  <browser:page
+    name="demo-content"
+    permission="cmf.ManagePortal"
+    class=".setup.Setup"
+    attribute="setupDemoContent"
+    for="Products.CMFCore.interfaces.ISiteRoot"
+   />
+
 </configure>
