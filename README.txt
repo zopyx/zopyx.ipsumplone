@@ -14,10 +14,10 @@ buildout and restart your Plone instance
 Usage
 =====
 
-- @@new-site called in the context of the Zope root object or a Zope folder will
+- ``@@new-site`` called in the context of the Zope root object or a Zope folder will
   create a new Plone site with a unique id
 
-- @@demo-content called in the context of the a Plone site will create
+- ``@@demo-content`` called in the context of the a Plone site will create
   a set of folder for images, news items and documents
 
 The main purpose of the package to call the views above inside the setuphandler
@@ -25,6 +25,11 @@ or profile setup step to generate example content on request.  Please check the
 ``browser/setup.py`` implementation to figure out API methods like
 ``createDocument()``, ``createImage()`` or ``createNewsitem()``. Subclassing
 the ``Setup`` view is obviously a good start for own customizations.
+
+Requirements
+============
+
+* tested with Plone 4.X
 
 Licence
 =======
