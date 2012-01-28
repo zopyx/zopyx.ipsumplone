@@ -9,7 +9,7 @@ Installation
 ============
 
 Add ``zopyx.ipsumplone`` to the eggs options of your buildout configuration, re-run
-buildout and restart your Plone instances.
+buildout and restart your Plone instance.
 
 Usage
 =====
