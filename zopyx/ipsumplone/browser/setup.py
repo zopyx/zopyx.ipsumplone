@@ -57,7 +57,7 @@ class Setup(BrowserView):
 
     def _createObject(self, portal_type, path, title=None, description=None):
 
-        dirpath, id = path.rsplit('/')
+        dirpath, id = path.rsplit('/', 1)
         current = self.context
         for p in dirpath.split('/'):
             if not p in current.objectIds():
