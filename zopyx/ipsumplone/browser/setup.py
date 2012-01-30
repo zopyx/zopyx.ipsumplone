@@ -13,6 +13,7 @@ from DateTime.DateTime import DateTime
 from Products.Five.browser import BrowserView
 from Products.CMFPlone.factory import addPloneSite
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
 from plone.i18n.normalizer.de import Normalizer
 
 pdf_data = file(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
@@ -44,9 +45,10 @@ class Setup(BrowserView):
 
     def setupDemoContent(self):
         for i in range(1, 10):
-            self.createDocument('press/release-%d' % i, title='Press release %d' % i)
-        for i in range(1, 10):
+            self.createDocument('documents/document-%d' % i, title='Document %d' % i)
+        for i in range(1, 20):
             self.createImage('images/image-%d' % i, width=800, height=600)
+        self.context.images.selectViewTemplate('atct_album_view')
         for i in range(1, 10):
             self.createNewsitem('news/newsitem-%d' % i)
         for i in range(1, 10):
@@ -55,7 +57,7 @@ class Setup(BrowserView):
             self.createFile('files/file-%d' % i)
         self.request.response.redirect(self.context.absolute_url())
 
-    def _createObject(self, portal_type, path, title=None, description=None):
+    def _createObject(self, portal_type, path, title=None, description=None, publish=True):
 
         dirpath, id = path.rsplit('/', 1)
         current = self.context
@@ -83,6 +85,13 @@ class Setup(BrowserView):
             obj.setText(gen_sentences())
             obj.setContentType('text/html')
             obj.Schema().getField('text').getContentType(obj, 'text/html')
+
+        if publish:
+            try:
+                obj.portal_workflow.doActionFor(obj, 'publish')
+            except WorkflowException:
+                pass
+
         obj.reindexObject()
         return obj    
 
