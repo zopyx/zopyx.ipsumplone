@@ -6,7 +6,6 @@
 
 import os
 import urllib2
-import random
 import loremipsum
 
 import plone.api
@@ -14,10 +13,8 @@ import zope.component
 from DateTime.DateTime import DateTime
 from Products.Five.browser import BrowserView
 from Products.CMFPlone.factory import addPloneSite
-from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
 from plone.app.textfield.value import RichTextValue
-from plone.i18n.normalizer.de import Normalizer
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.behavior.interfaces import IBehaviorAssignable
 from plone.namedfile import NamedImage
@@ -92,7 +89,7 @@ class Setup(BrowserView):
         dirpath, id = path.rsplit('/', 1)
         current = self.context
         for p in dirpath.split('/'):
-            if not p in current.objectIds():
+            if p not in current.objectIds():
                 obj = plone.api.content.create(type='Folder', container=current, id=p, title=p)
                 obj.setTitle(p.capitalize())
                 obj.reindexObject()
@@ -101,7 +98,7 @@ class Setup(BrowserView):
                 current = current[p]
 
         if id in current.objectIds():
-            current.manage_delObjects(id)    
+            current.manage_delObjects(id)
         obj = plone.api.content.create(type=portal_type, container=current, id=id)
         obj = current[id]
 
@@ -151,10 +148,9 @@ class Setup(BrowserView):
 
     def createFile(self, path, title=None):
         obj = self._createObject('File', path, title=title)
-        named_file = NamedImage()
+        named_file = NamedFile()
         named_file.data = pdf_data
         named_file.filename = u'test.pdf'
         named_file.contentType = 'application/pdf'
         obj.file = named_file
         obj.reindexObject()
-
