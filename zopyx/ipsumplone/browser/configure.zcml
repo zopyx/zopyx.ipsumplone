@@ -1,23 +1,24 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="weisshaupt.policy">
+    i18n_domain="zopyx.ipsumplone">
 
-  <browser:page
-    name="new-site"
-    permission="cmf.ManagePortal"
-    class=".setup.Setup"
-    attribute="setupSite"
-    for="*"
-   />
+    <include package="Products.CMFCore" />
 
+    <browser:page
+        name="new-site"
+        permission="cmf.ManagePortal"
+        class=".setup.Setup"
+        attribute="setupSite"
+        for="*"
+    />
 
-  <browser:page
-    name="demo-content"
-    permission="cmf.ManagePortal"
-    class=".setup.Setup"
-    attribute="setupDemoContent"
-    for="Products.CMFCore.interfaces.ISiteRoot"
-   />
+    <browser:page
+        name="demo-content"
+        permission="cmf.ManagePortal"
+        class=".setup.Setup"
+        attribute="setupDemoContent"
+        for="Products.CMFCore.interfaces.ISiteRoot"
+    />
 
 </configure>

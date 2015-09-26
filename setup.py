@@ -29,6 +29,7 @@ setup(name='zopyx.ipsumplone',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.api',
           'loremipsum',
           # -*- Extra requirements: -*-
       ],
