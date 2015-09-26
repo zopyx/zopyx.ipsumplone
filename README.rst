@@ -1,9 +1,8 @@
 zopyx.ipsumplone
 ================
 
-This package provides some browser view for creating demo
-content and demo images without reinventing functionality 
-for every new project.
+This package provides some browser view for creating demo content and demo
+images without reinventing functionality for every new project.
 
 Installation
 ============
@@ -29,7 +28,8 @@ the ``Setup`` view is obviously a good start for own customizations.
 Requirements
 ============
 
-* tested with Plone 4.X
+* tested with Plone 5.0 and Dexterity content (use ``zopyx.ipsumplone`` 0.2.X
+  for Archetypes-based content under Plone 4.X)
 
 Sources
 =======
@@ -49,9 +49,8 @@ Licence
 Author
 ======
 
-| ZOPYX Limited
-| c/o Andreas Jung
-| Charlottenstr. 37/1
+| ZOPYX/Andreas Jung
+| Hundskapfklinge 33
 | D-72070 Tübingen, Germany
 | www.zopyx.com
 | info@zopyx.com
