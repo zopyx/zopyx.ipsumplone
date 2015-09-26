@@ -92,6 +92,7 @@ class Setup(BrowserView):
             if p not in current.objectIds():
                 obj = plone.api.content.create(type='Folder', container=current, id=p, title=p)
                 obj.setTitle(p.capitalize())
+                plone.api.content.transition(obj, 'publish')
                 obj.reindexObject()
                 current = obj
             else:
@@ -117,10 +118,9 @@ class Setup(BrowserView):
 
         if publish:
             try:
-                obj.portal_workflow.doActionFor(obj, 'publish')
-            except WorkflowException:
+                plone.api.content.transition(obj=obj, transition='publish')
+            except:
                 pass
-
         obj.reindexObject()
         return obj
 
