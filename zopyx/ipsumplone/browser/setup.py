@@ -70,11 +70,16 @@ class Setup(BrowserView):
         profiles = ['plonetheme.barceloneta:default'] + extra_profiles
         addPloneSite(self.context, portal_id, extension_ids=profiles)
         self.site = self.context[portal_id]
+        if 'content' in self.request.form:
+            self.site.restrictedTraverse('@@demo-content')()
         self.request.response.redirect(self.context.getId() + '/' + portal_id)
 
     def setupDemoContent(self):
         for i in range(1, 10):
             self.createDocument('documents/document-%d' % i, title='Document %d' % i)
+        for i in range(1, 10):
+            self.createNewsitem('documents-all-content/document-%d' % i, title='Document %d' % i)
+        self.context['documents-all-content'].setLayout('summary_view')
         for i in range(1, 20):
             self.createImage('images/image-%d' % i, width=800, height=600)
         self.context['images'].setLayout('album_view')
@@ -82,6 +87,8 @@ class Setup(BrowserView):
             self.createNewsitem('news/newsitem-%d' % i)
         for i in range(1, 10):
             self.createFile('files/file-%d' % i)
+        for i in range(1, 10):
+            self.createEvent('events/events-%d' % i)
         self.request.response.redirect(self.context.absolute_url())
 
     def _createObject(self, portal_type, path, title=None, description=None, publish=True):
@@ -153,4 +160,12 @@ class Setup(BrowserView):
         named_file.filename = u'test.pdf'
         named_file.contentType = 'application/pdf'
         obj.file = named_file
+        obj.reindexObject()
+    
+    def createEvent(self, path, title=None):
+        obj = self._createObject('Event', path, title=title)
+        obj.contact_name = u'Heinz Becker'
+        obj.contact_email = u'no-such-email@demo.com'
+        obj.contact_phone = '+49 1234 1212121'
+        obj.event_url = u'https://www.plone.org'
         obj.reindexObject()
