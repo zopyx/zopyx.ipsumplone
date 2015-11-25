@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.0 (2015-09-26)
+0.3.x (2015-09-26)
 ------------------
 - support for Plone 5/Dexterity
 
