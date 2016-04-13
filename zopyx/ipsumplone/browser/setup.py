@@ -140,7 +140,7 @@ class Setup(BrowserView):
         named_image = NamedImage()
         named_image.data = random_image(400, 200)
         named_image.filename = u'test.jpg'
-        named_image.contentType = 'image/jpg'
+        named_image.contentType = u'image/jpg'
         obj.image = named_image
         obj.reindexObject()
 
@@ -149,7 +149,7 @@ class Setup(BrowserView):
         named_image = NamedImage()
         named_image.data = random_image(width, height)
         named_image.filename = u'test.jpg'
-        named_image.contentType = 'image/jpg'
+        named_image.contentType = u'image/jpg'
         obj.image = named_image
         obj.reindexObject()
 
@@ -158,7 +158,7 @@ class Setup(BrowserView):
         named_file = NamedFile()
         named_file.data = pdf_data
         named_file.filename = u'test.pdf'
-        named_file.contentType = 'application/pdf'
+        named_file.contentType = u'application/pdf'
         obj.file = named_file
         obj.reindexObject()
     

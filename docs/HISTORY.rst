@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.3.7 (2016-04-13)
+------------------
+- fixed editing issues with images and news items
+
 0.3.x (2015-09-26)
 ------------------
 - support for Plone 5/Dexterity
