@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.3.8 (2016-09-29)
+------------------
+- new image service
+
 0.3.7 (2016-04-13)
 ------------------
 - fixed editing issues with images and news items
