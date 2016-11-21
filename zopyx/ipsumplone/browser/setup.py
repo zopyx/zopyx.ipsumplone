@@ -41,7 +41,7 @@ def gen_sentences(length=80):
 
 
 def random_image(width, height):
-    url = 'https://unsplash.it/%d/%d/' % (width, height)
+    url = 'https://placekitten.com/%d/%d/' % (width, height)
     return urllib2.urlopen(url).read()
 
 
