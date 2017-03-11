@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.3.9'
+version = '0.3.10'
 
 setup(name='zopyx.ipsumplone',
       version=version,
