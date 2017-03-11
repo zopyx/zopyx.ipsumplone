@@ -42,6 +42,7 @@ def gen_sentences(length=80):
 
 def random_image(width, height):
     url = 'https://placekitten.com/%d/%d/' % (width, height)
+    print url
     return urllib2.urlopen(url).read()
 
 
@@ -161,7 +162,7 @@ class Setup(BrowserView):
         named_file.contentType = u'application/pdf'
         obj.file = named_file
         obj.reindexObject()
-    
+
     def createEvent(self, path, title=None):
         obj = self._createObject('Event', path, title=title)
         obj.contact_name = u'Heinz Becker'
