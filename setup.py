@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.3.11'
+version = '0.3.12'
 
 setup(name='zopyx.ipsumplone',
       version=version,
@@ -32,6 +32,7 @@ setup(name='zopyx.ipsumplone',
       install_requires=[
           'setuptools',
           'plone.api',
+          'requests',
           'loremipsum',
           # -*- Extra requirements: -*-
       ],

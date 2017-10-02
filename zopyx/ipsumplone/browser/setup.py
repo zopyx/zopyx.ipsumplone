@@ -42,7 +42,11 @@ def gen_sentences(length=80):
 
 def random_image(width, height):
     url = 'http://www.placecage.com/%d/%d' % (width, height)
-    return urllib2.urlopen(url).read()
+    headers = {
+        'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    }
+    resp = requests.get(url, headers=headers)
+    return resp.content
 
 
 def get_all_fields(context):
