@@ -5,7 +5,7 @@
 
 
 import os
-import urllib2
+import requests
 import loremipsum
 
 import plone.api
