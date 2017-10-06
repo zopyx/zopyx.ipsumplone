@@ -5,16 +5,22 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Custom Theme"
+      title="zopyx.ipsumplone"
       directory="profiles/default"
-      description='Extension profile for the "Custom Theme" Plone theme.'
+      description='zopyx.ipsumplone'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="zopyx.ipsumplone [uninstall]"
+      directory="profiles/uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+   />
+
   <genericsetup:importStep
       name="zopyx.ipsumplone.various"
-      title="Custom Theme: miscellaneous import steps"
-      description="Various import steps that are not handled by GS import/export handlers."
+      description='zopyx.ipsumplone (various import steps)'
       handler="zopyx.ipsumplone.setuphandlers.setupVarious">
     <depends name="skins"/>
   </genericsetup:importStep>
