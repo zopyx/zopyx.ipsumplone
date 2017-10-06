@@ -14,12 +14,14 @@
   <genericsetup:registerProfile
       name="uninstall"
       title="zopyx.ipsumplone [uninstall]"
+      description="zopyx.ipsumplone [uninstall]"
       directory="profiles/uninstall"
       provides="Products.GenericSetup.interfaces.EXTENSION"
    />
 
   <genericsetup:importStep
       name="zopyx.ipsumplone.various"
+      title="zopyx.ipsumplone.various (import step)"
       description='zopyx.ipsumplone (various import steps)'
       handler="zopyx.ipsumplone.setuphandlers.setupVarious">
     <depends name="skins"/>
