@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.3.15'
+version = '0.3.16'
 
 setup(name='zopyx.ipsumplone',
       version=version,
@@ -18,6 +18,7 @@ setup(name='zopyx.ipsumplone',
         "Framework :: Plone :: 4.3",
         "Framework :: Plone :: 5.0",
         "Framework :: Plone :: 5.1",
+        "Framework :: Plone :: 5.2",
         "Programming Language :: Python",
         ],
       keywords='Plone Loremipsum',

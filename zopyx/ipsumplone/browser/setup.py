@@ -17,8 +17,8 @@ from Products.CMFCore.WorkflowCore import WorkflowException
 from plone.app.textfield.value import RichTextValue
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.behavior.interfaces import IBehaviorAssignable
-from plone.namedfile import NamedImage
-from plone.namedfile import NamedFile
+from plone.namedfile import NamedBlobImage
+from plone.namedfile import NamedBlobFile
 
 
 pdf_data = file(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
@@ -141,28 +141,19 @@ class Setup(BrowserView):
 
     def createNewsitem(self, path, title=None):
         obj = self._createObject('News Item', path, title=title)
-        named_image = NamedImage()
-        named_image.data = random_image(400, 200)
-        named_image.filename = u'test.jpg'
-        named_image.contentType = u'image/jpg'
+        named_image = NamedBlobImage(random_image(400, 200), filename=u'test.jpg', contentType='image/png')
         obj.image = named_image
         obj.reindexObject()
 
     def createImage(self, path, width=800, height=600, title=None):
         obj = self._createObject('Image', path, title=title)
-        named_image = NamedImage()
-        named_image.data = random_image(width, height)
-        named_image.filename = u'test.jpg'
-        named_image.contentType = u'image/jpg'
+        named_image = NamedBlobImage(random_image(width, height), filename=u'test.jpg', contentType='image/png')
         obj.image = named_image
         obj.reindexObject()
 
     def createFile(self, path, title=None):
         obj = self._createObject('File', path, title=title)
-        named_file = NamedFile()
-        named_file.data = pdf_data
-        named_file.filename = u'test.pdf'
-        named_file.contentType = u'application/pdf'
+        named_file = NamedBlobFile(pdf_data, filename=u'test.pdf', contentType='application/pdf')
         obj.file = named_file
         obj.reindexObject()
 
