@@ -5,6 +5,7 @@
 
 
 import os
+import random
 import requests
 import loremipsum
 
@@ -41,6 +42,8 @@ def gen_sentences(length=80):
 
 
 def random_image(width, height):
+    width = width + random.randint(-25, 25)
+    height = height + random.randint(-25, 25)
     url = 'http://www.placecage.com/%d/%d' % (width, height)
     headers = {
         'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
