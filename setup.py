@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.3.18'
+version = '0.4.0'
 
 setup(name='zopyx.ipsumplone',
       version=version,
@@ -12,13 +12,8 @@ setup(name='zopyx.ipsumplone',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         "Framework :: Plone",
-        "Framework :: Plone :: 4.0",
-        "Framework :: Plone :: 4.1",
-        "Framework :: Plone :: 4.2",
-        "Framework :: Plone :: 4.3",
-        "Framework :: Plone :: 5.0",
-        "Framework :: Plone :: 5.1",
         "Framework :: Plone :: 5.2",
+        "Framework :: Plone :: 6.0",
         "Programming Language :: Python",
         ],
       keywords='Plone Loremipsum',
@@ -34,7 +29,7 @@ setup(name='zopyx.ipsumplone',
           'setuptools',
           'plone.api',
           'requests',
-          'loremipsum',
+          'lorem-text',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

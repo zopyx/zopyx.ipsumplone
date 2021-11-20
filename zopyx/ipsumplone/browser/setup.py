@@ -7,7 +7,7 @@
 import os
 import random
 import requests
-import loremipsum
+from lorem_text import lorem
 
 import plone.api
 import zope.component
@@ -22,15 +22,15 @@ from plone.namedfile import NamedBlobImage
 from plone.namedfile import NamedBlobFile
 
 
-pdf_data = file(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
+pdf_data = open(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
 
 
 def gen_paragraphs(num=3):
-    return u'/'.join([p[2] for p in loremipsum.Generator().generate_paragraphs(num)])
+    return lorem.paragraphs(num)
 
 
 def gen_sentence():
-    return loremipsum.Generator().generate_sentence()[-1]
+    return lorem.sentence()
 
 
 def gen_word():
@@ -38,7 +38,7 @@ def gen_word():
 
 
 def gen_sentences(length=80):
-    return u'/'.join([s[2] for s in loremipsum.Generator().generate_sentences(length)])
+    return gen_sentence()
 
 
 def random_image(width, height):

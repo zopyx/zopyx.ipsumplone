@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.4.0 (2021.-11-20)
+-------------------
+- new lorem ipsum module
+- adjusted for Plone 6, Python 3
+
 0.3.11 (2017-10-02)
 -------------------
 - new image service
