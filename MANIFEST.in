@@ -1,2 +1,3 @@
 recursive-include zopyx *
 global-exclude *pyc
+include docs/*
