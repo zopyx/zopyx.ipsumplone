@@ -59,13 +59,13 @@ def get_all_fields(context):
 
     schema = zope.component.getUtility(
         IDexterityFTI, name=context.portal_type).lookupSchema()
-    fields = dict((fieldname, schema[fieldname]) for fieldname in schema)
+    fields = {fieldname: schema[fieldname] for fieldname in schema}
 
     assignable = IBehaviorAssignable(context)
     for behavior in assignable.enumerateBehaviors():
         behavior_schema = behavior.interface
-        fields.update((name, behavior_schema[name])
-                      for name in behavior_schema)
+        fields |= ((name, behavior_schema[name]) for name in behavior_schema)
+
 
     return fields
 
@@ -73,13 +73,13 @@ def get_all_fields(context):
 class Setup(BrowserView):
 
     def setupSite(self, prefix='sample', extra_profiles=[]):
-        portal_id = '%s-%s' % (prefix, DateTime().strftime('%y-%m-%d-%H%M%S'))
+        portal_id = f"{prefix}-{DateTime().strftime('%y-%m-%d-%H%M%S')}"
         profiles = ['plonetheme.barceloneta:default'] + extra_profiles
         addPloneSite(self.context, portal_id, extension_ids=profiles)
         self.site = self.context[portal_id]
         if 'content' in self.request.form:
             self.site.restrictedTraverse('@@demo-content')()
-        self.request.response.redirect(self.context.getId() + '/' + portal_id)
+        self.request.response.redirect(f'{self.context.getId()}/{portal_id}')
 
     def setupDemoContent(self):
         for i in range(1, 10):
