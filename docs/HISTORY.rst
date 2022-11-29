@@ -1,8 +1,12 @@
 Changelog
 =========
 
-0.4.0 (2021.-11-20)
--------------------
+0.4.1 (unreleased)
+------------------
+- disable CSRF protection for browser views.
+
+0.4.0 (2021-11-20)
+------------------
 - new lorem ipsum module
 - adjusted for Plone 6, Python 3
 
