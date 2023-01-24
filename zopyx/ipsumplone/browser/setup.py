@@ -20,7 +20,8 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone.behavior.interfaces import IBehaviorAssignable
 from plone.namedfile import NamedBlobImage
 from plone.namedfile import NamedBlobFile
-
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 pdf_data = open(os.path.join(os.path.dirname(__file__), 'demo.pdf'), 'rb').read()
 
@@ -44,7 +45,7 @@ def gen_sentences(length=80):
 def random_image(width, height):
     width = width + random.randint(-25, 25)
     height = height + random.randint(-25, 25)
-    url = 'http://www.placecage.com/%d/%d' % (width, height)
+    url = 'https://picsum.photos/%d/%d' % (width, height)
     headers = {
         'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
     }
@@ -73,6 +74,8 @@ def get_all_fields(context):
 class Setup(BrowserView):
 
     def setupSite(self, prefix='sample', extra_profiles=[]):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
         portal_id = '%s-%s' % (prefix, DateTime().strftime('%y-%m-%d-%H%M%S'))
         profiles = ['plonetheme.barceloneta:default'] + extra_profiles
         addPloneSite(self.context, portal_id, extension_ids=profiles)
@@ -82,6 +85,8 @@ class Setup(BrowserView):
         self.request.response.redirect(self.context.getId() + '/' + portal_id)
 
     def setupDemoContent(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+
         for i in range(1, 10):
             self.createDocument('documents/document-%d' % i, title='Document %d' % i)
         for i in range(1, 10):
